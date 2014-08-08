@@ -2,6 +2,69 @@
 html,ul,li{ margin: 0px; padding: 0px;}
 body, input{ font-family: Verdana; font-size: 12px; }
 
+
+
+/* SUPER COFUSING TO MAKE COLORS */
+.sc-base {
+    padding: 11px;
+    margin: -10px;
+}
+
+.sc-face {
+    padding-left: 18px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: -11px;
+}
+
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    vertical-align: middle !important;
+}
+.hidden {
+    visibility: hidden;
+}
+
+#sc-1 {
+    background-color: rgb(234, 238, 144);
+}
+#sc-2 {
+    background-color: rgb(238, 223, 144);
+}
+#sc-3 {
+    background-color: rgb(238, 208, 144);
+}
+#sc-4 {
+    background-color: rgb(238, 193, 144);
+}
+#sc-5 {
+    background-color: rgb(238, 163, 144);
+}
+#sc-6 {
+    background-color: rgb(238, 163, 144);
+}
+#sc-7 {
+    background-color: rgb(238, 144, 144);
+}
+#sc-8 {
+    background-color: rgb(226, 114, 114);
+    color: #FFF;
+}
+#sc-9 {
+    background-color: rgb(211, 89, 89);
+    color: #FFF;
+}
+#sc-10 {
+    background-color: rgb(195, 63, 63);
+    color: #FFF;
+}
+
+
+
+
+
+
+
 /* SEARCH */
 #ct_search_container{
     position: relative;
@@ -64,11 +127,11 @@ h1 i {
 }
 
 .sneakyhiddenstuff, .sneakyhiddenstuff a  {
-    color: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.12) !important;
 }
 
 .sneakyhiddenstuff a:hover  {
-    color: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.28) !important;
     padding: 5px;
 }
 

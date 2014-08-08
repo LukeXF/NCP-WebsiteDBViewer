@@ -10,31 +10,9 @@
 
 	include_once('assets/configurations.php'); // Settings for this project (edit this)
 	include_once('assets/Main.php'); //	The compress backbone for this project
-	include('assets/time.php'); // The time frame selector to search by minutes
 	include('assets/color.php'); // The background color selection for the importance level
-
-	// Selects the table from the database
-	$params['sql_query']   = "SELECT * FROM Hackasaurus";
-
-	// Tells the table what to call the headers
-	$params['header']                   = 'Face, Username,Rank,Infraction,Server,Level,Bans,Kicks, Importance,Time';
-
-	// Defines the width of each column, but this is mainly done in css.
-	$params['width']                    = '5% , 10%     ,10%  ,15%       ,10%   ,5%   ,5%  ,5%   ,5%         , 12%  ';
-
-	// 	Players shown per page. It will not show more than is physically in the DB
-	//	For example, if you have 48 players and you set below to 10,25,50 it would
-	//	Display 10,25,48 and not anything above - it will show the limit.
-	$params['items_per_page_init']      = '11,25,50';
-
-
-	// I used a post request to push the AJAX display
-	if ($_POST['ajax_option']!='') {
-		echo json_encode($ct->display($_POST['ajax_option'],true));
-		exit;
-	} else {
-		$out=$ct->display();
-	}
+	include('assets/time.php'); // The time frame selector to search by minutes
+	include('assets/send.php'); // Makes the magic happen!
 
 ?>
 
@@ -191,7 +169,6 @@
 	</footer>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>$(document).ready(function() {$('.popup--ajax').magnificPopup({type:'ajax'});});</script>
 
 		
 </body>

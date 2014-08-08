@@ -7,12 +7,41 @@ $db_username    = 'root';
 $db_password    = '615218009';
 $db_name        = 'Se1byDB';
 
-/*  That is all, if this connects then all is well
+
+
+// Selects the table from the database
+$params['sql_query']   = "SELECT * FROM Hackasaurus";
+
+// Tells the table what to call the headers
+$params['header']                   = 'Face, Username,Rank,Infraction,Server,Level,Bans,Kicks, Counter,Time';
+
+// Defines the width of each column, but this is mainly done in css.
+$params['width']                    = '5% , 10%     ,10%  ,15%       ,10%   ,5%   ,5%  ,5%   ,5%         , 12% ';
+
+//  Players shown per page. It will not show more than is physically in the DB
+//  For example, if you have 48 players and you set below to 10,25,50 it would
+//  Display 10,25,48 and not anything above - it will show the limit.
+$params['items_per_page_init']      = '10,25,50,100';
+
+
+
+
+/*  That is all, if this connects then all is well.
     You will not need to edit the below but I have
-    left it there in case quick fixes need to be made
+    left it there in case quick fixes need to be made.
 
     ***********************************************
 */
+
+
+
+
+
+
+
+
+
+
 
 
 // Connects to the mysql server
@@ -22,6 +51,15 @@ mysql_select_db($db_name);
 
 // Nice shortened variable
 $link = mysql_connect($db_server, $db_username, $db_password) or die("Could not connect: " . mysql_error());
+
+
+
+
+
+
+
+
+
 
 
 
