@@ -8,32 +8,25 @@
 	*
 	**/
 
-	include_once('assets/configurations.php');
-	include_once('assets/Main.php');
-
+	include_once('assets/configurations.php'); // Settings for this project (edit this)
+	include_once('assets/Main.php'); //	The compress backbone for this project
+	include('assets/time.php'); // The time frame selector to search by minutes
+	include('assets/color.php'); // The background color selection for the importance level
 
 	// Selects the table from the database
-	$params['sql_query']                = "SELECT * FROM Hackasaurus";
+	$params['sql_query']   = "SELECT * FROM Hackasaurus";
 
 	// Tells the table what to call the headers
-	$params['header']                   = 'Face, Username,Rank,Infraction,Server,Level,Bans,Kicks,Time';
+	$params['header']                   = 'Face, Username,Rank,Infraction,Server,Level,Bans,Kicks, Importance,Time';
 
 	// Defines the width of each column, but this is mainly done in css.
-	$params['width']                    = '10  , 90      ,10  ,90  ,90   ,50    ,50   ,10%  ,20  , 50%  ';
+	$params['width']                    = '5% , 10%     ,10%  ,15%       ,10%   ,5%   ,5%  ,5%   ,5%         , 12%  ';
 
 	// 	Players shown per page. It will not show more than is physically in the DB
 	//	For example, if you have 48 players and you set below to 10,25,50 it would
 	//	Display 10,25,48 and not anything above - it will show the limit.
-	$params['items_per_page_init']      = '10,25,50';
+	$params['items_per_page_init']      = '11,25,50';
 
-	// I used the formatting of the column to allow the play heads to show up pretty easily.
-	$params['format_cols']          = array('<img src="https://minotar.net/avatar/#COL1#/20">','#COL1#','','','','','','','');
-
-
-
-	// Sends all the parameters to the newly created table.
-	$ct->table($params);
-	$ct->pager = theSexyLoadingSystem('ct',$page,$ct->total_items,$ct->items_per_page);
 
 	// I used a post request to push the AJAX display
 	if ($_POST['ajax_option']!='') {
@@ -43,18 +36,11 @@
 		$out=$ct->display();
 	}
 
-
-
-
-
-
-
-
-
 ?>
+
 <!-- 	
 	This code and project was developed under contact by NivanaMC
-	To Luke Brown (me<@>luke.sx). If you like what you see, rather
+	To Luke Brown (me@luke.sx). If you like what you see, rather
 	than trying to steal my code - contact me and we can work together.
 -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -119,19 +105,16 @@
 			<div class="grid__item desk--three-thirds">
 				<main class="page-main">
 					<article class="module">
-						<h1 class="module__heading h2">Nirvana Infractions</h1>
-
+						<?php echo $timeHeader; ?>
 						<div class="grid__item desk--one-third sexysearch">
 
+
+
+
+							<?php // 	The search button with javascript to function it below	?>
 							<div class="dropdown button-group__small sexysearch">
 								<a href="javascript: ctShowAdvancedSearch('ct');" title="Advanced Search" class="button button--small sexypadding">
 									<i class="fa fa-search"></i> Advanced Search 
-								</a>
-							</div>
-
-							<div id="button" class="dropdown button-group__small sexysearch">
-								<a href="javascript: sql'SELECT * FROM  `Hackasaurus` WHERE DATE( TIMESTAMP ) > DATE_SUB( NOW( ) , INTERVAL 5 MINUTE' " title="The Last 5 Minutes" class="button button--small sexypadding">
-									<i class="fa fa-clock-o"></i> Recent Infractions 
 								</a>
 							</div>
 
@@ -139,9 +122,39 @@
 								var button = document.getElementById("button");
 									button.addEventListener("click" ajaxFunction, false);
 								var ajaxFunction = function () {
-									    javascript: ctShowAdvancedSearch('ct');
+										javascript: ctShowAdvancedSearch('ct');
 								}
 							</script>
+
+
+
+
+							<select id="dropdowntime" onchange="gotoPage(this)" value="Select Recent" class="sexytime">
+								<?php // The timing options you specified above will be placed here ?>
+							</select>
+
+							<script>
+							// This is for th drop down menu, specif the options above.
+							timeSetting = [<?php echo $timeSetting; ?>];
+							text = "";
+							var i;
+							for (i = 0; i < timeSetting.length; i++) {
+							     text  += "<option value='?q=" + timeSetting[i] + "'>" + timeSetting[i] + " Minutes </option>";
+							}
+
+							// Print the results
+							document.getElementById("dropdowntime").innerHTML = text;
+							</script>
+
+
+							<script type="text/javascript">
+								function gotoPage(select){
+									window.location = select.value;
+								}
+							</script>
+							
+
+					
 
 						</div>
 
@@ -152,10 +165,10 @@
 			</div>
 
 			<?php 
-				// Remove the comment to turn on all my sexy staffs :D
+				// Remove the comment to turn on all my sexy stats :D
 				// include 'stats.php'; 
-			?>
 
+			?>
 
 		</div><!-- grid -->
 	</div><!-- container -->

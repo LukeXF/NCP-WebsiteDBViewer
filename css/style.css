@@ -33,9 +33,27 @@ margin-bottom: -15px;
 }
 
 .sexysearch {
-    top: 45px;
+    top: 121px;
+    margin-top: -41px;
     left: 185px;
     z-index: 300;
+}
+
+.sexytime {
+    width: 195px;
+    float: right;
+    top: 33;
+    right: 0;
+    padding: 12.4px;
+    margin-right: -138px;
+    margin-top: 41px;
+    margin-bottom: -55px;
+    z-index: 300;
+}
+
+h1 i {
+    font-size: 50%;
+    color: #BDBDBD;
 }
 
 .sexypadding {

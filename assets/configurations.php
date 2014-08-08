@@ -4,7 +4,7 @@
 // Please note you must select the table in index.php
 $db_server      = 'localhost';
 $db_username    = 'root';
-$db_password    = 'pass';
+$db_password    = '615218009';
 $db_name        = 'Se1byDB';
 
 /*  That is all, if this connects then all is well
