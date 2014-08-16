@@ -3,9 +3,9 @@
 // Please edit the below database settings
 // Please note you must select the table in index.php
 $db_server      = 'localhost';
-$db_username    = 'root';
-$db_password    = '615218009';
-$db_name        = 'Se1byDB';
+$db_username    = '';
+$db_password    = '';
+$db_name        = '';
 
 
 
